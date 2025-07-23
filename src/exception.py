@@ -19,4 +19,9 @@ class CustomException(Exception):
         self.error_message = error_message_detail(error_message,error_detail=error_detail)
 
         def __str__(self):
-            return self.error_message           
+            return self.error_message   
+        #The primary purpose of __str__ is to provide a user-friendly, informal string representation of an object, suitable for display to end-users or for logging. It prioritizes readability and conciseness, often omitting internal details that are not relevant to the user.
+
+        #It likens CustomException to a "SuperCar" inheriting from a "basic car" (Exception). The super().__init__(error_message) call is like telling the "basic car" part of your "SuperCar" its fundamental "color" (the initial error_message). This is crucial because:
+        #It properly initializes the base Exception class with a default message.
+        #This ensures your CustomException behaves correctly even when treated as a generic Exception (e.g., in a broad except Exception as e: block or when Python prints an unhandled exception), allowing that basic message to be displayed.
