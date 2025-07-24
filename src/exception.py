@@ -3,6 +3,7 @@
 
 
 import sys
+import logging
 
 def error_message_detail(error,error_detail:sys):
     _,_,exc_tb = error_detail.exc_info()
@@ -25,3 +26,11 @@ class CustomException(Exception):
         #It likens CustomException to a "SuperCar" inheriting from a "basic car" (Exception). The super().__init__(error_message) call is like telling the "basic car" part of your "SuperCar" its fundamental "color" (the initial error_message). This is crucial because:
         #It properly initializes the base Exception class with a default message.
         #This ensures your CustomException behaves correctly even when treated as a generic Exception (e.g., in a broad except Exception as e: block or when Python prints an unhandled exception), allowing that basic message to be displayed.
+
+if __name__ == "__main__":
+    try:
+        a = 1 / 0
+    except Exception as e:
+        logging.info("Divide by zero error occurred")
+        raise CustomException(e, sys)
+    

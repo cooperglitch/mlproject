@@ -12,7 +12,7 @@ logs_path = os.path.join(os.getcwd(), "logs", LOG_FILE)
 os.makedirs(os.path.dirname(logs_path), exist_ok=True)
 #The primary goal of these two lines is to create a dedicated directory for your log files if it doesn't already exist, and to construct the full, correct path to your new log file within that directory.
 
-LOG_FILE_PATH = os.path.join(logs_path, LOG_FILE)
+LOG_FILE_PATH = logs_path
 
 logging.basicConfig(
     filename=LOG_FILE_PATH,
